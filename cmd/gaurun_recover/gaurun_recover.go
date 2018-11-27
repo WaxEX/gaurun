@@ -21,6 +21,8 @@ var (
 	GCMClient  *gcm.Client
 )
 
+// TODO add AMAZON
+
 func pushNotification(wg *sync.WaitGroup, req gaurun.RequestGaurunNotification, logPush gaurun.LogPushEntry) {
 	var result bool
 	switch logPush.Platform {

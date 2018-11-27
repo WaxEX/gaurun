@@ -71,6 +71,8 @@ func main() {
 	gaurun.LogAccess = accessLogger
 	gaurun.LogError = errorLogger
 
+	// TODO add AMAZON
+
 	if !gaurun.ConfGaurun.Ios.Enabled && !gaurun.ConfGaurun.Android.Enabled {
 		gaurun.LogSetupFatal(fmt.Errorf("What do you want to do?"))
 	}
@@ -127,6 +129,9 @@ func main() {
 			gaurun.LogSetupFatal(fmt.Errorf("failed to init http client for APNs: %v", err))
 		}
 	}
+
+	// TODO ADD AMAZON
+
 	gaurun.InitStat()
 	gaurun.StartPushWorkers(gaurun.ConfGaurun.Core.WorkerNum, gaurun.ConfGaurun.Core.QueueNum)
 
@@ -150,7 +155,10 @@ func main() {
 	sigTERMChan := make(chan os.Signal, 1)
 	signal.Notify(sigTERMChan, syscall.SIGTERM)
 
+	// ここでしょり止まってんねんなたぶん
+
 	<-sigTERMChan
+
 	gaurun.LogError.Info("shutdown server")
 	timeout := time.Duration(conf.Core.ShutdownTimeout) * time.Second
 	ctx, cancel := context.WithTimeout(context.Background(), timeout)

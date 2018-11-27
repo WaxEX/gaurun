@@ -18,6 +18,7 @@ var (
 	// Stat for Gaurun
 	StatGaurun StatApp
 	// http client for APNs and GCM/FCM
+	// TODO add AMAZON
 	APNSClient *http.Client
 	GCMClient  *gcm.Client
 	// access and error logger

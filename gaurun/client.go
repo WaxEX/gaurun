@@ -68,3 +68,5 @@ func InitAPNSClient() error {
 	}
 	return nil
 }
+
+// TODO add AMAZON

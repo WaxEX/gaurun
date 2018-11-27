@@ -15,6 +15,8 @@ type StatApp struct {
 	Android     StatAndroid `json:"android"`
 }
 
+// TODO add AMAZON
+
 type StatAndroid struct {
 	PushSuccess int64 `json:"push_success"`
 	PushError   int64 `json:"push_error"`
@@ -24,6 +26,8 @@ type StatIos struct {
 	PushSuccess int64 `json:"push_success"`
 	PushError   int64 `json:"push_error"`
 }
+
+// TODO add AMAZON
 
 func InitStat() {
 	StatGaurun.QueueUsage = 0

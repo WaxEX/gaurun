@@ -10,6 +10,8 @@ import (
 	"github.com/BurntSushi/toml"
 )
 
+// TODO add AMAZON
+
 type ConfToml struct {
 	Core    SectionCore    `toml:"core"`
 	Android SectionAndroid `toml:"android"`
